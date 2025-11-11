@@ -1,5 +1,3 @@
-// lib/presentation/screens/home/widgets/restaurant_card.dart
-
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../config/theme/app_theme.dart';

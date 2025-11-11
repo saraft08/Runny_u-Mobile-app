@@ -21,11 +21,8 @@ class RestaurantProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      print('🔍 Intentando cargar restaurantes...');
       _restaurants = await _repository.getAllRestaurants();
-      print('✅ Restaurantes cargados: ${_restaurants.length}');
     } catch (e) {
-      print('❌ Error al cargar restaurantes: $e');
       _error = e.toString();
     } finally {
       _isLoading = false;

@@ -1,5 +1,3 @@
-// lib/presentation/screens/home/home_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../core/widgets/custom_app_bar.dart';
@@ -7,9 +5,11 @@ import '../../../core/widgets/loading_overlay.dart';
 import '../../../config/theme/app_theme.dart';
 import '../../providers/restaurant_provider.dart';
 import '../../providers/cart_provider.dart';
+import '../../providers/notification_provider.dart';
 import 'widgets/menu_drawer.dart';
 import 'widgets/restaurant_card.dart';
 import '../restaurant/restaurant_detail_screen.dart';
+import '../notifications/notifications_modal.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -33,6 +33,15 @@ class _HomeScreenState extends State<HomeScreen> {
   void dispose() {
     _searchController.dispose();
     super.dispose();
+  }
+
+  void _showNotifications() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const NotificationsModal(),
+    );
   }
 
   @override
@@ -91,6 +100,52 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       endDrawer: const MenuDrawer(),
+      floatingActionButton: Consumer<NotificationProvider>(
+        builder: (context, notificationProvider, _) {
+          final unreadCount = notificationProvider.unreadCount;
+          
+          return FloatingActionButton(
+            onPressed: _showNotifications,
+            backgroundColor: AppTheme.primaryOrange,
+            child: Stack(
+              children: [
+                const Center(
+                  child: Icon(
+                    Icons.notifications,
+                    color: Colors.white,
+                    size: 28,
+                  ),
+                ),
+                if (unreadCount > 0)
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: const BoxDecoration(
+                        color: AppTheme.secondaryYellow,
+                        shape: BoxShape.circle,
+                      ),
+                      constraints: const BoxConstraints(
+                        minWidth: 18,
+                        minHeight: 18,
+                      ),
+                      child: Text(
+                        unreadCount > 9 ? '9+' : '$unreadCount',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          );
+        },
+      ),
       body: Consumer<RestaurantProvider>(
         builder: (context, provider, _) {
           return LoadingOverlay(

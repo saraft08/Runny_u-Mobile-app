@@ -1,5 +1,3 @@
-// lib/presentation/screens/auth/login_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../config/theme/app_theme.dart';
@@ -192,7 +190,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     Flexible(
                       child: TextButton(
                         onPressed: () {
-                          // TODO: Implementar recuperar contraseña
                         },
                         style: TextButton.styleFrom(
                           padding: const EdgeInsets.symmetric(horizontal: 8),

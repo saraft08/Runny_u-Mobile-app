@@ -1,5 +1,3 @@
-// lib/presentation/screens/home/widgets/menu_drawer.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../config/theme/app_theme.dart';

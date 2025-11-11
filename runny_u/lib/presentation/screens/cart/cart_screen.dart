@@ -1,5 +1,3 @@
-// lib/presentation/screens/cart/cart_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -8,6 +6,7 @@ import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_button.dart';
 import '../../providers/cart_provider.dart';
 import '../../providers/auth_provider.dart';
+import '../../providers/notification_provider.dart';
 import '../home/widgets/menu_drawer.dart';
 import 'widgets/cart_item_widget.dart';
 
@@ -102,6 +101,7 @@ class CartScreen extends StatelessWidget {
 
   Future<void> _payCart(BuildContext context) async {
     final cartProvider = context.read<CartProvider>();
+    final notificationProvider = context.read<NotificationProvider>();
 
     if (cartProvider.savedCart == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -118,6 +118,16 @@ class CartScreen extends StatelessWidget {
     if (!context.mounted) return;
 
     if (success) {
+      final billNumber = cartProvider.lastBillNumber ?? 'UNKNOWN';
+      final total = cartProvider.lastBillTotal;
+      
+      await notificationProvider.addOrderNotification(
+        billNumber: billNumber,
+        total: total,
+      );
+
+      if (!context.mounted) return;
+
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -150,8 +160,8 @@ class CartScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
-                'Reclama con la Factura #6, su valor total es de 14000',
+              Text(
+                'Reclama con la Factura #$billNumber, su valor total es de \$${total.toStringAsFixed(0)}',
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),

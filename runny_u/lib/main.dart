@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:timezone/data/latest.dart' as tz;
 import 'config/theme/app_theme.dart';
 import 'config/router/app_router.dart';
 import 'presentation/providers/auth_provider.dart';
 import 'presentation/providers/restaurant_provider.dart';
 import 'presentation/providers/cart_provider.dart';
 import 'presentation/providers/bill_provider.dart';
+import 'presentation/providers/notification_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Inicializar timezone para las notificaciones
+  tz.initializeTimeZones();
   
   // Configurar orientación de la app
   SystemChrome.setPreferredOrientations([
@@ -31,6 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => RestaurantProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
         ChangeNotifierProvider(create: (_) => BillProvider()),
+        ChangeNotifierProvider(create: (_) => NotificationProvider()),
       ],
       child: MaterialApp(
         title: 'Runny U',

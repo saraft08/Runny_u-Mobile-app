@@ -11,11 +11,15 @@ class CartProvider with ChangeNotifier {
   CartModel? _savedCart;
   bool _isLoading = false;
   String? _error;
+  String? _lastBillNumber;
+  double _lastBillTotal = 0.0;
 
   List<CartItemModel> get items => _items;
   CartModel? get savedCart => _savedCart;
   bool get isLoading => _isLoading;
   String? get error => _error;
+  String? get lastBillNumber => _lastBillNumber;
+  double get lastBillTotal => _lastBillTotal;
   int get itemCount => _items.fold(0, (sum, item) => sum + item.quantity);
   double get total => _items.fold(0.0, (sum, item) => sum + item.subtotal);
 
@@ -109,8 +113,13 @@ class CartProvider with ChangeNotifier {
     notifyListeners();
 
     try {
-      await _repository.payCart(_savedCart!.id!);
+      final bill = await _repository.payCart(_savedCart!.id!);
+      
+      _lastBillNumber = bill.numberBill.toString();
+      _lastBillTotal = bill.total;
+      
       clearCart();
+      
       _isLoading = false;
       notifyListeners();
       return true;

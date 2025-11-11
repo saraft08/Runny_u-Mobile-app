@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'config/theme/app_theme.dart';
 import 'presentation/providers/auth_provider.dart';
+import 'core/utils/permission_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,6 +22,9 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
     
     if (!mounted) return;
+
+    // Solicitar permisos de notificaciones
+    await PermissionHelper.requestNotificationPermissions(context);
 
     final authProvider = context.read<AuthProvider>();
     await authProvider.checkAuthStatus();

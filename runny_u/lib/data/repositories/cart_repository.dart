@@ -56,6 +56,7 @@ class CartRepository {
       {},
       requiresAuth: true,
     );
+    
     return BillModel.fromJson(response as Map<String, dynamic>);
   }
 }

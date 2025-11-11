@@ -31,16 +31,10 @@ class ApiService {
       final headers = await _getHeaders(requiresAuth: requiresAuth);
       final url = Uri.parse('${ApiConstants.baseUrl}$endpoint');
       
-      print('🌐 GET Request: $url');
-      
       final response = await _client.get(url, headers: headers);
-      
-      print('📥 Response status: ${response.statusCode}');
-      print('📥 Response body: ${response.body}');
       
       return _handleResponse(response);
     } catch (e) {
-      print('❌ GET Error: $e');
       throw _handleError(e);
     }
   }
