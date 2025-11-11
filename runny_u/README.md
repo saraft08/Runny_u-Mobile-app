@@ -1,16 +1,2 @@
-# runny_u
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Runny_u-Mobile-app
+Small-scale university delivery software designed for students. It allows them to reserve food in advance for pickup at the store, avoiding lines and optimizing time during the academic day. Its approach is adaptable to universities around the world, promoting a more efficient and modern experience.
