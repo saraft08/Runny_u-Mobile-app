@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Paleta de colores inspirada en Runny U
-  static const Color primaryOrange = Color(0xFFFF6B35);
-  static const Color secondaryYellow = Color(0xFFFDB833);
-  static const Color darkRed = Color(0xFF8B1A1A);
-  static const Color lightPink = Color(0xFFFFF0F0);
-  static const Color darkGray = Color(0xFF2D2D2D);
-  static const Color lightGray = Color(0xFFF5F5F5);
-  static const Color mediumGray = Color(0xFF9E9E9E);
+  // Paleta de colores inspirada en Runny U - NUEVA PALETAFLU
+  static const Color primaryOrange = Color(0xFFC12309);      // Rojo vino tinto
+  static const Color secondaryYellow = Color(0xFFEB1313);    // Rojo intenso
+  static const Color darkRed = Color.fromARGB(255, 165, 3, 38);            // Vino tinto oscuro
+  static const Color lightPink = Color(0xFFF2F2F2);          // Gris claro
+  static const Color darkGray = Color(0xFF121212);           // Negro carbón
+  static const Color lightGray = Color(0xFFF2F2F2);          // Gris claro
+  static const Color mediumGray = Color(0xFF5A5A5A);         // Gris oscuro
 
   static ThemeData get lightTheme {
     return ThemeData(
