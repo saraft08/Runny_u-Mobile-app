@@ -1,5 +1,3 @@
-// lib/data/models/cart_item_model.dart
-
 class CartItemModel {
   final String productId;
   final String name;

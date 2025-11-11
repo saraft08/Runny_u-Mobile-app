@@ -1,5 +1,3 @@
-// lib/data/models/cart_model.dart
-
 import 'cart_item_model.dart';
 
 class CartModel {

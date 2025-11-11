@@ -1,5 +1,3 @@
-// lib/data/models/restaurant_model.dart
-
 import 'menu_item_model.dart';
 
 class RestaurantModel {

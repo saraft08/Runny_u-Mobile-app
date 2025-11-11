@@ -1,5 +1,3 @@
-// lib/data/models/menu_item_model.dart
-
 class MenuItemModel {
   final String id;
   final String name;

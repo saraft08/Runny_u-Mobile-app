@@ -1,5 +1,3 @@
-// lib/data/models/bill_model.dart
-
 class BillItemModel {
   final String name;
   final String image;
