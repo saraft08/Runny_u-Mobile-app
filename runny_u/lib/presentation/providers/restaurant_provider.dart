@@ -1,5 +1,3 @@
-// lib/presentation/providers/restaurant_provider.dart
-
 import 'package:flutter/material.dart';
 import '../../data/models/restaurant_model.dart';
 import '../../data/repositories/restaurant_repository.dart';

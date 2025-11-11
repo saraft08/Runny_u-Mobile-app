@@ -1,5 +1,3 @@
-// lib/presentation/providers/bill_provider.dart
-
 import 'package:flutter/material.dart';
 import '../../data/models/bill_model.dart';
 import '../../data/repositories/bill_repository.dart';

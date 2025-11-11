@@ -1,5 +1,3 @@
-// lib/presentation/providers/cart_provider.dart
-
 import 'package:flutter/material.dart';
 import '../../data/models/cart_model.dart';
 import '../../data/models/cart_item_model.dart';

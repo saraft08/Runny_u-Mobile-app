@@ -1,5 +1,3 @@
-// lib/presentation/providers/auth_provider.dart
-
 import 'package:flutter/material.dart';
 import '../../data/models/user_model.dart';
 import '../../data/repositories/auth_repository.dart';
