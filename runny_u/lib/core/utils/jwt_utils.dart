@@ -1,5 +1,3 @@
-// lib/core/utils/jwt_utils.dart
-
 import 'package:jwt_decoder/jwt_decoder.dart';
 import '../../data/models/user_model.dart';
 

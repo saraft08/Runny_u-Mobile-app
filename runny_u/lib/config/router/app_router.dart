@@ -1,5 +1,3 @@
-// lib/config/router/app_router.dart
-
 import 'package:flutter/material.dart';
 import '../../splash_screen.dart';
 import '../../presentation/screens/auth/login_screen.dart';
